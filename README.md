@@ -101,3 +101,4 @@ Sett verða fyrir sex minni verkefni þar sem fimm bestu gilda 6% hvert, samtals
 
 Sett verða fyrir tvö hópa verkefni þar sem hvort um sig gildir 15%, samtals 30% af lokaeinkunn.
 # vef-2-verk-2
+# vef-2-verk-2
