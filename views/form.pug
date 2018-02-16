@@ -1,4 +1,47 @@
 extends layout
 
 block content
-  p Form!
+ - function isEmptyObject(obj) {
+ -      var name;
+ -      for (name in obj) {
+ -        return false;
+ -      }
+ -      return true;
+ -    }
+  h1= title
+   if (isEmptyObject(errors) == false)
+    p.errorMessage= "The following errors occurred:"
+   ul  
+      each error in errors
+        li= error.msg
+  form( method="post",action="/")
+    div
+      div
+        span.label Nafn :
+        input(type="text", name="name", class="name")
+      div
+        span.label Email :
+        input(type="text", name="email", class="email")
+      div
+        span.label Kennitala :
+        input(type="text", name="ssn", class="ssn")
+      div
+        span.label Fjöldi :
+        input(type="text", name="fjoldi", class="fjoldi")
+      div
+        input(type="submit", value="Submit")
+  p #{message}
+  if notandi
+    p innskráður sem #{notandi.name}
+    a(href="/logout") Logout
+    br
+    a(href="/admin") Stjórnsíða
+  else 
+    a(href="/login") Login
+
+
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
+  script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin='anonymous')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')
+
